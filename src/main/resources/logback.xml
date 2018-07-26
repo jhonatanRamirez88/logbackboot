@@ -12,9 +12,39 @@
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
+
+<!-- 	Definiendo propiedad para ser usada en el xml -->
+	<property name="LOG_PATH" value="logs" />
+	
+<!-- 	definiendo nombre de archivo y el formato en el que se guardaran los logs -->
+	<appender name="SAVE-TO-FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${LOG_PATH}/log.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
     
 <!--     Crea mas detalle de log de una clase en especifico -->
     <logger name="com.logbacboot.logbackboot.service.MyServiceImpl" additivity="false" level="debug">
     	<appender-ref ref="STDOUT" />
     </logger>
+    
+<!--     Crear detalle de log dado las clases de un paquete -->
+<!-- 	<logger name="com.logbacboot.logbackboot.service" additivity="false" level="trace"> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+<!-- 	</logger> -->
+	
+<!-- 	Ejemplificando el log para el paquete de boot -->
+<!-- 	<logger name="org.springframework.boot" level="debug"> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+<!-- 	</logger>  -->
+
+<!-- 	Log detallado clase application -->
+<!-- 	<logger name="org.springframework.boot.SpringApplication" level="debug"> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+<!-- 	</logger>  -->
+
+
 </configuration>
