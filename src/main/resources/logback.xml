@@ -8,7 +8,13 @@
         </encoder>
     </appender>
 
+	<!-- Nivel de detalle que se quiere mostrar en el log -->
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
+    
+<!--     Crea mas detalle de log de una clase en especifico -->
+    <logger name="com.logbacboot.logbackboot.service.MyServiceImpl" additivity="false" level="debug">
+    	<appender-ref ref="STDOUT" />
+    </logger>
 </configuration>
